@@ -152,7 +152,7 @@ class Ui(QtWidgets.QDialog):
         #soort_vak = (vragen["vragen"][questionnr]["vak"])
         #print(soort_vak)
         if questionnr <= 13:
-            print(questionnr)
+            #print(questionnr)
             self.Fort_Knox["vraag" + str(questionnr)] = False
             questionnr += 1
             vraag = (vragen["vragen"][questionnr]["vraag"])
@@ -187,10 +187,10 @@ class Ui(QtWidgets.QDialog):
             self.Fort_Knox["vraag" + str(questionnr)] = True
             questionnr += 1
             vraag = (vragen["vragen"][questionnr]["vraag"])
-            print (sp1)
-            print (sp2)
-            print (sp3)
-            print (sp4)
+            #print (sp1)
+            #print (sp2)
+            #print (sp3)
+            #print (sp4)
             self.label = self.findChild(QtWidgets.QLabel,"vraagbox")
             self.label.setText(vraag)
             self.label.setFont(font)
@@ -198,7 +198,7 @@ class Ui(QtWidgets.QDialog):
             
          
 
-            print(self.Fort_Knox)
+            #print(self.Fort_Knox)
         else:
             self.uitslag()
             self.setStyleSheet("QWidget#uitslagscherm {background-image : url(./Image2.png);}")
@@ -236,12 +236,12 @@ class Ui(QtWidgets.QDialog):
                 sp4 -= int(waarde)
                 self.Fort_Knox.pop("vraag" + str(questionnr))
             
-            print(questionnr)
+            #print(questionnr)
                 
-            print (sp1)
-            print (sp2)
-            print (sp3)
-            print (sp4)
+            #print (sp1)
+            #print (sp2)
+            #print (sp3)
+            #print (sp4)
 
             soort_vak = (vragen["vragen"][questionnr]["vak"])
             waarde = (vragen["vragen"][questionnr]["weging"])
