@@ -3,6 +3,7 @@ from PyQt5.Qt import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from PyQt5 import QtMultimedia as m
 import PyQt5.QtGui
 from PyQt5 import QtGui
 from PyQt5 import QtCore
@@ -16,21 +17,24 @@ sp1 = 0 #IAT
 sp2 = 0 #FICT
 sp3 = 0 #SE
 sp4 = 0 #BDAM
+musicnr = 1
 
 f = open("vragen.json", "r")
 vragen = json.load(f)
 length = len(vragen["vragen"])
 #END INIT
+
         
 vraag = ""
 
 class Ui(QtWidgets.QDialog):
     def __init__(self):
         super(Ui, self).__init__() # Call the inherited classes __init__ method
+        self.setFixedSize(1082, 770)
         uic.loadUi('sorteerhoed.ui', self) # Load the .ui file
         p = self.palette()
         p.setColor(self.backgroundRole(), Qt.red)
-        #self.setStyleSheet("QWidget#Vraagscherm1 {background-image : url(./harry.jpg);}")
+        self.setStyleSheet("QWidget#Vraagscherm1 {background-image : url(./Image2.png);}")
         self.setPalette(p)
       
         
@@ -47,13 +51,51 @@ class Ui(QtWidgets.QDialog):
         self.startButton.clicked.connect(self.startx)
         self.ExitButton = self.findChild(QtWidgets.QPushButton, "exit_naar_home")
         self.ExitButton.clicked.connect(self.exit_to_mainmenu)
-
+        self.mz1Button = self.findChild(QtWidgets.QPushButton, "MUZIEK1")
+        self.mz2Button = self.findChild(QtWidgets.QPushButton, "MUZIEK2")
+        self.mz3Button = self.findChild(QtWidgets.QPushButton, "MUZIEK3")
+        self.mz1Button.clicked.connect(self.music)
+        self.mz2Button.clicked.connect(self.music)
+        self.mz3Button.clicked.connect(self.music)
 
         self.label = self.findChild(QtWidgets.QLabel,"vraagbox")
         self.label.setText(vraag)
         self.label.setFont(font)
+        self.musicurl = QtCore.QUrl.fromLocalFile("song1.mp3")
+        self.play()
 
         self.show()
+    
+    def music(self):
+        global musicnr
+        if musicnr == 0:
+            self.musicurl = QtCore.QUrl.fromLocalFile("song1.mp3")
+            musicnr += 1
+        elif musicnr == 1:
+            self.musicurl = QtCore.QUrl.fromLocalFile("song2.mp3")
+            musicnr += 1
+        elif musicnr == 2:
+            self.musicurl = QtCore.QUrl.fromLocalFile("song3.mp3")
+            musicnr += 1
+        elif musicnr == 3:
+            self.musicurl = QtCore.QUrl.fromLocalFile("song4.mp3")
+            musicnr += 1
+        elif musicnr == 4:
+            self.musicurl = QtCore.QUrl.fromLocalFile("song5.mp3")
+            musicnr = 0
+        
+
+        self.play()
+            
+
+
+    def play(self):
+        self.content = m.QMediaContent(self.musicurl)
+        self.player = m.QMediaPlayer()
+        self.player.setMedia(self.content)
+        self.player.play()
+
+
 
     def startx(self):
         global questionnr
@@ -157,7 +199,9 @@ class Ui(QtWidgets.QDialog):
 
     def exit_to_mainmenu(self):     #naar startscherm
         self.tabs.setCurrentIndex(0)
+
+
 font = QtGui.QFont("MS Shell Dlg 2", 20)
-app = QtWidgets.QApplication(sys.argv) 
+app = QtWidgets.QApplication(sys.argv)
 window = Ui() 
 app.exec_() 
