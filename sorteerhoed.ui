@@ -10,6 +10,12 @@
     <height>770</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>Sorteer hoed</string>
   </property>
@@ -29,10 +35,10 @@
   <widget class="QTabWidget" name="Vraagscherm">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>0</y>
-     <width>1091</width>
-     <height>771</height>
+     <x>0</x>
+     <y>-20</y>
+     <width>1101</width>
+     <height>791</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -49,6 +55,19 @@
        <y>160</y>
        <width>481</width>
        <height>281</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="MUZIEK1">
+     <property name="geometry">
+      <rect>
+       <x>980</x>
+       <y>10</y>
+       <width>75</width>
+       <height>91</height>
       </rect>
      </property>
      <property name="text">
@@ -164,6 +183,19 @@
       <bool>true</bool>
      </property>
     </widget>
+    <widget class="QPushButton" name="MUZIEK2">
+     <property name="geometry">
+      <rect>
+       <x>980</x>
+       <y>10</y>
+       <width>75</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="uitslagscherm">
     <attribute name="title">
@@ -176,6 +208,19 @@
        <y>100</y>
        <width>431</width>
        <height>321</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="MUZIEK3">
+     <property name="geometry">
+      <rect>
+       <x>980</x>
+       <y>10</y>
+       <width>75</width>
+       <height>91</height>
       </rect>
      </property>
      <property name="text">
