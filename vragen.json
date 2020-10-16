@@ -1,0 +1,79 @@
+{
+    "vragen": [
+        {
+            "vraag": "Ik vind het leuk om mij te verdiepen in de gebruikers.",
+            "vak": "0",
+            "weging": "1"
+        },
+        {
+            "vraag": "Zowel het onderzoeken van hardware en software vind ik interessant.",
+            "vak": "0",
+            "weging": "2"
+        },
+        {
+            "vraag": "Ik vind het leuk om van een idee een werkend product te maken.",
+            "vak": "0",
+            "weging": "1"
+        },
+        {
+            "vraag": "Ik documenteer alles wat ik doe voor opdrachten.",
+            "vak": "1",
+            "weging": "1"
+        },
+        {
+            "vraag": "Ik denk graag lang na over mogelijke oplossingen.",
+            "vak": "1",
+            "weging": "1"
+        },
+        {
+            "vraag": "Ik ben heel nieuwsgierig over het achterhalen van oorzaken.",
+            "vak": "1",
+            "weging": "1"
+        },
+        {
+            "vraag": "Ik vind het doen van een escaperoom erg leuk.",
+            "vak": "1",
+            "weging": "1"
+        },
+        {
+            "vraag": "Als ik een probleem zie ben ik snel geneigd om na te denken over een oplossing. ",
+            "vak": "2",
+            "weging": "1"
+        },
+        {
+            "vraag": "Ik vind het makkelijk om mijn logica goed om te zetten in code.",
+            "vak": "2",
+            "weging": "1"
+        },
+        {
+            "vraag": "Ik vind het in mijn dagelijks leven handig om alles te plannen en gestructureerd aan de slag te gaan.",
+            "vak": "2",
+            "weging": "1"
+        },
+        {
+            "vraag": "Als ik kleine foutjes zie probeer ik ze te fixen, hoe klein of nutteloos ze ook lijken te zijn.",
+            "vak": "2",
+            "weging": "1"
+        },
+        {
+            "vraag": "Ik hou van puzzelen, het vinden van verborgen patronen intrigeert mij.",
+            "vak": "3",
+            "weging": "1"
+        },
+        {
+            "vraag": "Ik ben analytisch ingesteld, ik maak erg vaak gebruik van mijn analytisch denk vermogen. Zo weet ik dat ik alle informatie tot mij heb genomen.",
+            "vak": "3",
+            "weging": "1"
+        },
+        {
+            "vraag": "Wanneer ik tegen een probleem aanloop zoek ik de oorzaak tot de bodem uit. Ik spring niet meteen naar een conclusie, integendeel stel ik mezelf altijd de onderzoeksvragen: wie/wat/waar/ sinds wanneer.",
+            "vak": "3",
+            "weging": "1"
+        },
+        {
+            "vraag": "Ik kan snel informatie verwerken en onthouden. Als een onderwerp mij intrigeert dan kan ik hier langdurig en aandachtig aan werken.",
+            "vak": "3",
+            "weging": "1"
+        }
+    ]
+}
