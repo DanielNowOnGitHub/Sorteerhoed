@@ -17,7 +17,7 @@ musicnr = 1
 
 f = open("vragen.json", "r")
 vragen = json.load(f)
-length = len(vragen["vragen"])
+
 #END INIT
 
         
@@ -41,6 +41,8 @@ class Ui(QtWidgets.QDialog):
         self.button3.clicked.connect(self.printButtonPressed1)
         self.button4 = self.findChild(QtWidgets.QPushButton,"back")
         self.button4.clicked.connect(self.exit_to_mainmenu)
+        self.remove = self.findChild(QtWidgets.QPushButton,"Remove")
+        self.remove.clicked.connect(self.printButtonPressed2)
         self.tabs = self.findChild(QtWidgets.QTabWidget, "Vraagscherm")
         self.startButton = self.findChild(QtWidgets.QPushButton,"start")
         self.startButton.clicked.connect(self.startx)
@@ -82,8 +84,13 @@ class Ui(QtWidgets.QDialog):
         
 
         self.play()
-            
+    
+    
+    Fort_Knox = {
 
+    }
+
+            
 
     def play(self):
         self.content = m.QMediaContent(self.musicurl)
@@ -109,10 +116,11 @@ class Ui(QtWidgets.QDialog):
         self.label = self.findChild(QtWidgets.QLabel,"vraagbox")
         self.label.setText(vraag)
         self.label.setFont(font)
-        questionnr += 1
+
 
         self.tabs.setCurrentIndex(1)
 
+    
     def uitslag(self):
         global sp1
         global sp2
@@ -143,13 +151,14 @@ class Ui(QtWidgets.QDialog):
         #vragen = json.load(f)
         #soort_vak = (vragen["vragen"][questionnr]["vak"])
         #print(soort_vak)
-        if questionnr <= 14:
+        if questionnr <= 13:
+            print(questionnr)
+            self.Fort_Knox["vraag" + str(questionnr)] = False
+            questionnr += 1
             vraag = (vragen["vragen"][questionnr]["vraag"])
             self.label = self.findChild(QtWidgets.QLabel,"vraagbox")
             self.label.setText(vraag)
             self.label.setFont(font)
-            print(questionnr)
-            questionnr += 1
         else:
             self.uitslag()
             self.setStyleSheet("QWidget#uitslagscherm {background-image : url(./Image2.png);}")
@@ -164,10 +173,9 @@ class Ui(QtWidgets.QDialog):
         global sp4
 
         
-        if questionnr <= 14:
+        if questionnr <= 13:
             soort_vak = (vragen["vragen"][questionnr]["vak"])
             waarde = (vragen["vragen"][questionnr]["weging"])
-            vraag = (vragen["vragen"][questionnr]["vraag"])
             if soort_vak == "0":
                 sp1 = sp1 + int(waarde)
             elif soort_vak == "1":
@@ -176,6 +184,9 @@ class Ui(QtWidgets.QDialog):
                 sp3 += int(waarde)
             else:
                 sp4 += int(waarde)
+            self.Fort_Knox["vraag" + str(questionnr)] = True
+            questionnr += 1
+            vraag = (vragen["vragen"][questionnr]["vraag"])
             print (sp1)
             print (sp2)
             print (sp3)
@@ -183,7 +194,11 @@ class Ui(QtWidgets.QDialog):
             self.label = self.findChild(QtWidgets.QLabel,"vraagbox")
             self.label.setText(vraag)
             self.label.setFont(font)
-            questionnr += 1
+            #print(questionnr)
+            
+         
+
+            print(self.Fort_Knox)
         else:
             self.uitslag()
             self.setStyleSheet("QWidget#uitslagscherm {background-image : url(./Image2.png);}")
@@ -195,31 +210,49 @@ class Ui(QtWidgets.QDialog):
         global sp2
         global sp3
         global sp4
+        if questionnr == 0:
+            self.exit_to_mainmenu()
 
-        questionnr -= 1
-        #f = open("vragen.json", "r")
-        #vragen = json.load(f)
-        soort_vak = (vragen["vragen"][questionnr]["vak"])
-        #print(soort_vak)
-        waarde = (vragen["vragen"][questionnr]["weging"])
-        vraag = (vragen["vragen"][questionnr]["vraag"])
-        #print(questionnr)
-        if soort_vak == "0":
-            sp1 -= int(waarde)
-        elif soort_vak == "1":
-            sp2 -= int(waarde)
-        elif soort_vak == "2":
-            sp3 -= int(waarde)
-        elif soort_vak == "3":
-            sp4 -= int(waarde)
-        print (sp1)
-        print (sp2)
-        print (sp3)
-        print (sp4)
-        self.label = self.findChild(QtWidgets.QLabel,"vraagbox")
-        self.label.setText(vraag)
-        self.label.setFont(font)
-        questionnr += 1
+        else:
+
+            questionnr -= 1
+
+            soort_vak = (vragen["vragen"][questionnr]["vak"])
+            waarde = (vragen["vragen"][questionnr]["weging"])
+            vraag = (vragen["vragen"][questionnr]["vraag"])
+            self.label = self.findChild(QtWidgets.QLabel,"vraagbox")
+            self.label.setText(vraag)
+            self.label.setFont(font)
+            if soort_vak == "0" and self.Fort_Knox["vraag" + str(questionnr)] == True:
+                sp1 -= int(waarde)
+                self.Fort_Knox.pop("vraag" + str(questionnr))
+            elif soort_vak == "1" and self.Fort_Knox["vraag" + str(questionnr)] == True:
+                sp2 -= int(waarde)
+                self.Fort_Knox.pop("vraag" + str(questionnr))
+            elif soort_vak == "2" and self.Fort_Knox["vraag" + str(questionnr)] == True:
+                sp3 -= int(waarde)
+                self.Fort_Knox.pop("vraag" + str(questionnr))
+            elif soort_vak == "3" and self.Fort_Knox["vraag" + str(questionnr)] == True:
+                sp4 -= int(waarde)
+                self.Fort_Knox.pop("vraag" + str(questionnr))
+            
+            print(questionnr)
+                
+            print (sp1)
+            print (sp2)
+            print (sp3)
+            print (sp4)
+
+            soort_vak = (vragen["vragen"][questionnr]["vak"])
+            waarde = (vragen["vragen"][questionnr]["weging"])
+            vraag = (vragen["vragen"][questionnr]["vraag"])
+
+            self.label = self.findChild(QtWidgets.QLabel,"vraagbox")
+            self.label.setText(vraag)
+            self.label.setFont(font)
+        
+        
+
     
     
 
