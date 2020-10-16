@@ -77,3 +77,5 @@ for i in iets:
         specialisatie + 1
     else:
         specialisatie + 0
+
+#ik was hier :gijs
