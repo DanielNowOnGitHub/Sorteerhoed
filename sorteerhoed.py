@@ -77,5 +77,6 @@ for i in iets:
     else:
         specialisatie + 0
 
+#hoi dit gasat wel goed
 #ik was hier :gijs
 #nu ik ook :pepijn
