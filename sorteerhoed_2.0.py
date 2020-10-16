@@ -1,10 +1,6 @@
 from PyQt5 import QtWidgets, uic
-from PyQt5.Qt import *
 from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
 from PyQt5 import QtMultimedia as m
-import PyQt5.QtGui
 from PyQt5 import QtGui
 from PyQt5 import QtCore
 import sys
@@ -32,13 +28,10 @@ class Ui(QtWidgets.QDialog):
         super(Ui, self).__init__() # Call the inherited classes __init__ method
         self.setFixedSize(1082, 770)
         uic.loadUi('sorteerhoed.ui', self) # Load the .ui file
-        p = self.palette()
-        p.setColor(self.backgroundRole(), Qt.red)
-        self.setStyleSheet("QWidget#Vraagscherm1 {background-image : url(./Image2.png);}")
         self.setStyleSheet("QWidget#startscherm {background-image : url(./Image2.png);}")
-        self.setStyleSheet("QWidget#uitslagscherm {background-image : url(./Image2.png);}")
-        self.setPalette(p)
-      
+        
+
+
         
         self.button1 = self.findChild(QtWidgets.QPushButton,"oneens")
         self.button1.clicked.connect(self.printButtonPressed)
@@ -61,6 +54,7 @@ class Ui(QtWidgets.QDialog):
         self.mz3Button.clicked.connect(self.music)
 
         self.label = self.findChild(QtWidgets.QLabel,"vraagbox")
+        self.label2 = self.findChild(QtWidgets.QLabel,"uitslag_box")
         self.label.setText(vraag)
         self.label.setFont(font)
         self.musicurl = QtCore.QUrl.fromLocalFile("song1.mp3")
@@ -110,6 +104,7 @@ class Ui(QtWidgets.QDialog):
         sp3 = 0 #SE
         sp4 = 0 #BDAM
         questionnr = 0
+        self.setStyleSheet("QWidget#Vraagscherm1 {background-image : url(./Image2.png);}")
         vraag = (vragen["vragen"][questionnr]["vraag"])
         self.label = self.findChild(QtWidgets.QLabel,"vraagbox")
         self.label.setText(vraag)
@@ -117,6 +112,29 @@ class Ui(QtWidgets.QDialog):
         questionnr += 1
 
         self.tabs.setCurrentIndex(1)
+
+    def uitslag(self):
+        global sp1
+        global sp2
+        global sp3
+        global sp4
+        
+        if sp1 >= sp2 and sp1 >= sp3 and sp1 >= sp4:
+            self.label2.setText("Interactie Technologie")
+            self.label2.setFont(font2)
+            #print("sp1")
+        elif sp2 >= sp1 and sp2 >= sp3 and sp2 >= sp4:
+            self.label2.setText("Forensische ICT")
+            self.label2.setFont(font2)
+            #print("sp2")
+        elif sp3 >= sp1 and sp3 >= sp2 and sp3 > sp4:
+            self.label2.setText("Software Engineering")
+            self.label2.setFont(font2)
+            #print("sp3")
+        elif sp4 >= sp1 and sp4 >= sp2 and sp4 >= sp3:
+            self.label2.setText("Bussiness Data Managment")
+            self.label2.setFont(font2)
+            #print("sp4")
 
 
     def printButtonPressed(self): #Oneens/neutraal
@@ -132,7 +150,9 @@ class Ui(QtWidgets.QDialog):
             self.label.setFont(font)
             print(questionnr)
             questionnr += 1
-        else: 
+        else:
+            self.uitslag()
+            self.setStyleSheet("QWidget#uitslagscherm {background-image : url(./Image2.png);}")
             self.tabs.setCurrentIndex(2)
 
     
@@ -157,14 +177,16 @@ class Ui(QtWidgets.QDialog):
             else:
                 sp4 += int(waarde)
             print (sp1)
-            #print (sp2)
-            #print (sp3)
-            #print (sp4)
+            print (sp2)
+            print (sp3)
+            print (sp4)
             self.label = self.findChild(QtWidgets.QLabel,"vraagbox")
             self.label.setText(vraag)
             self.label.setFont(font)
             questionnr += 1
         else:
+            self.uitslag()
+            self.setStyleSheet("QWidget#uitslagscherm {background-image : url(./Image2.png);}")
             self.tabs.setCurrentIndex(2)
     
     def printButtonPressed2(self): #Back
@@ -198,12 +220,18 @@ class Ui(QtWidgets.QDialog):
         self.label.setText(vraag)
         self.label.setFont(font)
         questionnr += 1
+    
+    
+
 
     def exit_to_mainmenu(self):     #naar startscherm
+        self.setStyleSheet("QWidget#startscherm {background-image : url(./Image2.png);}")
         self.tabs.setCurrentIndex(0)
+        
 
 
 font = QtGui.QFont("MS Shell Dlg 2", 20)
+font2 = QtGui.QFont("MS Shell Dlg 2", 40)
 app = QtWidgets.QApplication(sys.argv)
 window = Ui() 
 app.exec_() 
