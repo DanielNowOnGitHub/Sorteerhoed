@@ -13,8 +13,7 @@ app = QApplication(sys.argv)
 
 question = ""
 vraag = "wil je dood?"
-
-## dit is luuk!!
+#hallo hoe gaat het met mij gaat alles goed 
 
 iat = 0
 se = 0
