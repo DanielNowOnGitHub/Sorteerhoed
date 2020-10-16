@@ -30,6 +30,7 @@ class Ui(QtWidgets.QDialog):
         uic.loadUi('sorteerhoed.ui', self) # Load the .ui file
         p = self.palette()
         p.setColor(self.backgroundRole(), Qt.red)
+        self.setStyleSheet("QWidget#Vraagscherm1 {background-image : url(./harry.jpg);}")
         self.setPalette(p)
     
         self.button1 = self.findChild(QtWidgets.QPushButton,"oneens")
