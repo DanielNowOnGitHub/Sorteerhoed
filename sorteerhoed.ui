@@ -36,14 +36,27 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="startscherm">
     <attribute name="title">
      <string>Page</string>
     </attribute>
+    <widget class="QPushButton" name="start">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>160</y>
+       <width>481</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
    </widget>
-   <widget class="QWidget" name="Vraagscherm1" native="true">
+   <widget class="QWidget" name="Vraagscherm1">
     <attribute name="title">
      <string/>
     </attribute>
@@ -156,6 +169,19 @@
     <attribute name="title">
      <string>Page</string>
     </attribute>
+    <widget class="QPushButton" name="exit_naar_home">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>100</y>
+       <width>431</width>
+       <height>321</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>
