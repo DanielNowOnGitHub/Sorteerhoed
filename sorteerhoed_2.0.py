@@ -35,6 +35,8 @@ class Ui(QtWidgets.QDialog):
         p = self.palette()
         p.setColor(self.backgroundRole(), Qt.red)
         self.setStyleSheet("QWidget#Vraagscherm1 {background-image : url(./Image2.png);}")
+        self.setStyleSheet("QWidget#startscherm {background-image : url(./Image2.png);}")
+        self.setStyleSheet("QWidget#uitslagscherm {background-image : url(./Image2.png);}")
         self.setPalette(p)
       
         
