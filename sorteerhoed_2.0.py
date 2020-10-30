@@ -45,6 +45,7 @@ class Ui(QtWidgets.QDialog):
         self.remove.clicked.connect(self.printButtonPressed2)
         self.tabs = self.findChild(QtWidgets.QTabWidget, "Vraagscherm")
         self.startButton = self.findChild(QtWidgets.QPushButton,"start")
+        self.startButton.setStyleSheet("border-image : url(./Start.png)")
         self.startButton.clicked.connect(self.startx)
         self.ExitButton = self.findChild(QtWidgets.QPushButton, "exit_naar_home")
         self.ExitButton.clicked.connect(self.exit_to_mainmenu)
@@ -57,7 +58,9 @@ class Ui(QtWidgets.QDialog):
 
         self.label = self.findChild(QtWidgets.QLabel,"vraagbox")
         self.label2 = self.findChild(QtWidgets.QLabel,"uitslag_box")
+        self.label2.setStyleSheet(color)
         self.label.setText(vraag)
+        self.label.setStyleSheet(color)
         self.label.setFont(font)
         self.musicurl = QtCore.QUrl.fromLocalFile("song1.mp3")
         self.play()
@@ -262,9 +265,9 @@ class Ui(QtWidgets.QDialog):
         self.tabs.setCurrentIndex(0)
         
 
-
-font = QtGui.QFont("MS Shell Dlg 2", 20)
-font2 = QtGui.QFont("MS Shell Dlg 2", 40)
+color = "QLabel { color: white; }"
+font = QtGui.QFont("Tempus Sans ITC", 30)
+font2 = QtGui.QFont("Tempus Sans ITC", 60)
 app = QtWidgets.QApplication(sys.argv)
 window = Ui() 
 app.exec_() 
