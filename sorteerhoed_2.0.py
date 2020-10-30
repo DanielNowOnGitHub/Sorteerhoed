@@ -83,8 +83,13 @@ class Ui(QtWidgets.QDialog):
             musicnr += 1
         elif musicnr == 4:
             self.musicurl = QtCore.QUrl.fromLocalFile("song5.mp3")
+            musicnr += 1 
+        elif musicnr == 5:
+            self.musicurl = QtCore.QUrl.fromLocalFile("song6.mp3")
+            musicnr += 1
+        elif musicnr == 6:
+            self.musicurl = QtCore.QUrl.fromLocalFile("song7.mp3")
             musicnr = 0
-        
 
         self.play()
     
