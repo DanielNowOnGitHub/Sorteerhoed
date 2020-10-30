@@ -51,27 +51,39 @@
     <widget class="QPushButton" name="start">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>160</y>
-       <width>481</width>
-       <height>281</height>
+       <x>60</x>
+       <y>110</y>
+       <width>661</width>
+       <height>371</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>72</pointsize>
+      </font>
+     </property>
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="MUZIEK1">
      <property name="geometry">
       <rect>
-       <x>980</x>
+       <x>954</x>
        <y>10</y>
-       <width>75</width>
-       <height>91</height>
+       <width>101</width>
+       <height>101</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background:  url(./plaat.png);
+border : none;</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string/>
      </property>
     </widget>
    </widget>
@@ -90,9 +102,13 @@
      </property>
      <property name="font">
       <font>
-       <family>MS Shell Dlg 2</family>
-       <pointsize>24</pointsize>
+       <family>Tempus Sans ITC</family>
+       <pointsize>48</pointsize>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+border : none;</string>
      </property>
      <property name="text">
       <string>Neutraal</string>
@@ -109,8 +125,13 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>24</pointsize>
+       <family>Tempus Sans ITC</family>
+       <pointsize>48</pointsize>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+border : none;</string>
      </property>
      <property name="text">
       <string>oneens</string>
@@ -123,18 +144,28 @@
      </property>
     </widget>
     <widget class="QPushButton" name="back">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>677</y>
+       <y>680</y>
        <width>141</width>
        <height>61</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>15</pointsize>
+       <family>Tempus Sans ITC</family>
+       <pointsize>30</pointsize>
+       <strikeout>false</strikeout>
+       <kerning>true</kerning>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+border : none;</string>
      </property>
      <property name="text">
       <string>Back</string>
@@ -151,8 +182,13 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>24</pointsize>
+       <family>Tempus Sans ITC</family>
+       <pointsize>48</pointsize>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+border : none;</string>
      </property>
      <property name="text">
       <string>eens</string>
@@ -186,14 +222,18 @@
     <widget class="QPushButton" name="MUZIEK2">
      <property name="geometry">
       <rect>
-       <x>980</x>
+       <x>954</x>
        <y>10</y>
-       <width>75</width>
-       <height>91</height>
+       <width>101</width>
+       <height>101</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background:  url(./plaat.png);
+border : none;</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="Remove">
@@ -204,6 +244,16 @@
        <width>141</width>
        <height>61</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Tempus Sans ITC</family>
+       <pointsize>30</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+border : none;</string>
      </property>
      <property name="text">
       <string>Remove</string>
@@ -218,26 +268,34 @@
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>520</y>
-       <width>331</width>
-       <height>211</height>
+       <y>500</y>
+       <width>431</width>
+       <height>231</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background:  url(./terug.png);
+border : none;</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="MUZIEK3">
      <property name="geometry">
       <rect>
-       <x>980</x>
+       <x>954</x>
        <y>10</y>
-       <width>75</width>
-       <height>91</height>
+       <width>101</width>
+       <height>101</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background:  url(./plaat.png);
+border : none;</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="uitslag_box">
